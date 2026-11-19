@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APÊ 35 | Igor Santos Arquitetura</title>
+<meta name="description" content="APÊ 35: reforma residencial de 35 m² em São Paulo, SP. Projeto executivo, modelagem 3D e detalhamentos.">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1b1b;--mute:#8a8a8a;--line:#d9d9d9}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Questrial',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 5vw}
+.logo{letter-spacing:.14em;font-size:14px}
+nav{display:flex;gap:28px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+nav a{color:var(--ink);text-decoration:none;opacity:.75}nav a.on,nav a:hover{opacity:1}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;min-height:78vh}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.ficha{padding:12vh 6vw 6vh;align-self:start}
+h1{font-weight:400;font-size:26px;letter-spacing:.04em;margin-bottom:46px}
+.row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+.row span:last-child{color:var(--mute);text-align:right}
+.trab{padding-top:16px;font-size:13px}.trab ul{margin:12px 0 0 6px;list-style:none;color:var(--mute);font-size:12px;line-height:2}
+.trab li:before{content:"• "}
+.planta{padding:9vh 5vw;display:flex;justify-content:center}
+.planta img{width:min(880px,100%);height:auto}
+.renders img{display:block;width:100%;height:auto}
+.renders{display:flex;flex-direction:column;gap:6px}
+.pn{display:flex;justify-content:space-between;padding:40px 5vw;font-size:13px}
+.pn a{color:var(--ink)}
+
+.intro{max-width:760px;margin:0 auto;padding:10vh 6vw 2vh;text-align:center;font-size:19px;line-height:1.75;letter-spacing:.01em}
+.txt{max-width:640px;margin:0 auto;padding:11vh 6vw;text-align:center}
+.txt small{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.txt p{font-size:17px;line-height:1.85}
+.mood{padding:2vh 5vw 4vh;display:flex;justify-content:center}
+.mood img{width:min(960px,100%);height:auto;display:block}
+footer{background:#1f1f22;color:#cfcfcf;padding:22px 5vw;font-size:11px;display:flex;justify-content:space-between}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero img{height:55vh}.ficha{padding:36px 6vw}nav{gap:14px}}
+</style>
+</head>
+<body>
+<header><div class="logo">IGOR SANTOS</div><nav><a>Varejo</a><a>Corporativo</a><a class="on">Residencial</a><a>Sobre Igor</a></nav></header>
+<section class="hero">
+  <img src="projetos/ape-35/images/ape35-01-destaque-sala.jpg" alt="Sala de estar e jantar integradas, com painel em madeira e luminárias pendentes">
+  <div class="ficha">
+    <h1>APÊ 35</h1>
+    <div class="row"><span>Localização</span><span>São Paulo - SP</span></div>
+    <div class="row"><span>Ano</span><span>2026</span></div>
+    <div class="row"><span>Metragem</span><span>35m²</span></div>
+    <div class="row"><span>Tipo de projeto</span><span>Reforma</span></div>
+    <div class="trab">Trabalho desenvolvido<ul><li>Projeto executivo</li><li>Modelagem 3D</li><li>Detalhamentos</li></ul></div>
+  </div>
+</section>
+<p class="intro">Trinta e cinco metros quadrados não pedem menos vida: pedem mais intenção. Neste apartamento, cada centímetro foi pensado para que morar caiba inteiro, do café da manhã à rotina do casal e à chegada de uma criança.</p>
+<section class="planta"><img src="projetos/ape-35/images/ape35-02-planta.jpg" alt="Planta baixa humanizada do apartamento"></section>
+<section class="txt"><small>Materiais</small><p>A paleta nasce de poucos gestos: a madeira clara de jequitibá, o cinza cristal, porcelanatos em tons de areia e pedra, o branco do mármore e o verde de uma folha. Matéria honesta e cor calma, para acalmar o olhar e deixar a casa respirar.</p></section>
+<section class="mood"><img src="projetos/ape-35/images/ape35-mood.jpg" alt="Moodboard com madeira, porcelanatos, pinturas e uma folha verde" loading="lazy"></section>
+<section class="renders" id="renders"></section>
+<section class="txt"><p>Projetar um espaço pequeno é um exercício de escolha: ficar com o essencial e deixar que ele seja belo.</p></section>
+<div class="pn"><a>← Anterior</a><a>Próximo →</a></div>
+<footer><span>© 2026 Igor Santos Arquitetura</span><span>Contato: 11 98215-8314 · igor.ssilva@outlook.com.br</span></footer>
+<script>
+var imgs=[["03-sala-02","Sala de estar com painel de TV em madeira"],["04-sala-03","Sala de jantar e cozinha integradas"],["05-sala-04","Vista da sala de jantar em direção ao corredor"],["06-cozinha-05","Cozinha com geladeira e porta com iluminação curva"],["07-cozinha-06","Cozinha em L com bancada em porcelanato"],["08-cozinha-07","Vitrine em vidro e madeira ao lado da área de serviço"],["09-cozinha-08","Cozinha com cooktop e máquina de lavar"],["10-cozinha-09","Corredor com vitrine em vidro"],["11-sala-10","Sala de estar com sofá"],["12-quarto-casal-11","Quarto de casal com armários suspensos"],["13-quarto-casal-12","Quarto de casal, cabeceira ripada"],["14-quarto-casal-13","Quarto de casal com espelho orgânico"],["15-quarto-bebe-14","Quarto do bebê com berço e poltrona"],["16-quarto-bebe-15","Quarto do bebê com armário e prateleiras"],["17-quarto-bebe-16","Quarto do bebê com nichos e brinquedos"],["18-quarto-bebe-17","Quarto do bebê com poltrona de amamentação"],["19-banheiro-18","Banheiro com bancada branca e box de vidro"],["20-banheiro-19","Banheiro com marcenaria em madeira"]];
+var T={"03":["Sala e cozinha","Sala e cozinha dividem o mesmo ar. O painel de madeira organiza, esconde e acolhe; a vitrine de vidro deixa a luz atravessar e transforma o que se guarda em paisagem."],"12":["Descanso","Dormir é a parte mais silenciosa da arquitetura. A cabeceira ripada, a luz indireta e a janela fazem o dia terminar devagar."],"15":["Um quarto que cresce","Um quarto que cresce com quem chega. Armários altos liberam o chão, as prateleiras guardam histórias e a poltrona ao lado do berço desenha o lugar do cuidado."],"19":["Pausa","Mesmo o menor cômodo merece luz e matéria. Vidro, marcenaria e um espelho generoso fazem do banho uma pausa."]};
+var box=document.getElementById('renders');
+imgs.forEach(function(a){var k=a[0].slice(0,2);if(T[k]){var d=document.createElement('div');d.className='txt';d.innerHTML='<small>'+T[k][0]+'</small><p>'+T[k][1]+'</p>';box.appendChild(d)}var i=document.createElement('img');i.src='projetos/ape-35/images/ape35-'+a[0]+'.jpg';i.alt=a[1];i.loading='lazy';box.appendChild(i)});
+</script>
+</body>
+</html>
