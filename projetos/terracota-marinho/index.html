@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TERRACOTA &amp; MARINHO | Traço Arquitetura</title>
+<meta name="description" content="TERRACOTA &amp; MARINHO: reforma residencial de 40 m² em São Paulo, SP, em tons de terracota, azul marinho e madeira. Projeto de interiores e modelagem 3D.">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1b1b;--mute:#8a8a8a;--line:#d9d9d9}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Questrial',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 5vw}
+.logo{letter-spacing:.14em;font-size:14px;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:28px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+nav a{color:var(--ink);text-decoration:none;opacity:.75}nav a.on,nav a:hover{opacity:1}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;min-height:78vh}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.ficha{padding:12vh 6vw 6vh;align-self:start}
+h1{font-weight:400;font-size:26px;letter-spacing:.04em;margin-bottom:46px}
+.row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+.row span:last-child i{font-style:normal}
+.row span:last-child{color:var(--mute);text-align:right}
+.trab{padding-top:16px;font-size:13px}.trab ul{margin:12px 0 0 6px;list-style:none;color:var(--mute);font-size:12px;line-height:2}
+.trab li:before{content:"• "}
+.planta{padding:9vh 5vw;display:flex;justify-content:center}
+.planta img{width:min(880px,100%);height:auto}
+.renders img{display:block;width:100%;height:auto}
+.renders{display:flex;flex-direction:column;gap:6px}
+.pn{display:flex;justify-content:space-between;padding:40px 5vw;font-size:13px}
+.pn a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px}.pn a:hover{border-color:var(--ink)}
+
+.intro{max-width:760px;margin:0 auto;padding:10vh 6vw 2vh;text-align:center;font-size:19px;line-height:1.75;letter-spacing:.01em}
+.txt{max-width:640px;margin:0 auto;padding:11vh 6vw;text-align:center}
+.txt small{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.txt p{font-size:17px;line-height:1.85}
+.mood{padding:2vh 5vw 4vh;display:flex;justify-content:center}
+.mood img{width:min(960px,100%);height:auto;display:block}
+
+/* ficha animada */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.ficha .row.rv:nth-of-type(1){transition-delay:.1s}.ficha .row.rv:nth-of-type(2){transition-delay:.2s}.ficha .row.rv:nth-of-type(3){transition-delay:.3s}.ficha .row.rv:nth-of-type(4){transition-delay:.4s}.ficha .trab.rv{transition-delay:.55s}
+.row{position:relative}.row:after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--ink);transition:width .9s ease .3s}
+.row.in:after{width:100%}
+/* zoom */
+.zoomable{cursor:zoom-in}
+.hero img.zoomable{transition:filter .3s}.renders img{cursor:zoom-in}
+/* planta interativa */
+.planta{flex-direction:column;align-items:center;gap:18px}
+.pl{position:relative;width:min(880px,100%)}
+.pl img{width:100%;height:auto;display:block}
+.hs{position:absolute;border:1px solid transparent;background:transparent;cursor:pointer;padding:0;border-radius:3px;transition:background .25s,border-color .25s;font-family:inherit}
+.hs span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.92);background:var(--ink);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:2px;opacity:0;transition:opacity .25s,transform .25s;white-space:nowrap;pointer-events:none}
+.hs:hover,.hs:focus-visible{background:rgba(27,27,27,.10);border-color:rgba(27,27,27,.55);outline:none}
+.hs:hover span,.hs:focus-visible span,.hs.hint span{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.dica{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.d-m{display:none}@media(hover:none){.d-m{display:inline}.d-d{display:none}.hs span{opacity:.92;transform:translate(-50%,-50%) scale(.82)}.hs{background:rgba(27,27,27,.05)}}
+/* materiais */
+.mats{max-width:960px;margin:0 auto;padding:2vh 5vw 10vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 48px}
+.mat{display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.sw{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+.sw.sq{border-radius:3px}
+.mat b{display:block;font-weight:400;font-size:14px}
+.mat span{display:block;font-size:12px;color:var(--mute);margin-top:3px;line-height:1.5}
+.mats-t{text-align:center;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);padding-top:2vh}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(14,14,14,.94);display:none;align-items:center;justify-content:center;z-index:50;touch-action:pan-y}
+#lb.on{display:flex}
+#lb img{max-width:94vw;max-height:84vh;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none;animation:lbin .25s ease}
+@keyframes lbin{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+#lb .cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#d8d8d8;font-size:13px;padding:0 70px}
+#lb .cnt{position:absolute;top:20px;left:24px;color:#9a9a9a;font-size:12px;letter-spacing:.14em}
+#lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font-family:inherit;opacity:.8;transition:opacity .2s}
+#lb button:hover{opacity:1}
+#lb .x{top:10px;right:18px;font-size:34px;line-height:1;padding:8px}
+#lb .pv,#lb .nx{top:50%;transform:translateY(-50%);font-size:44px;padding:20px}
+#lb .pv{left:6px}#lb .nx{right:6px}
+@media(max-width:800px){#lb .pv,#lb .nx{font-size:34px;padding:10px;top:auto;bottom:56px;transform:none}#lb .cap{padding:0 20px;bottom:18px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.row:after{transition:none;width:100%}#lb img{animation:none}}
+footer{background:#1f1f22;color:#cfcfcf;padding:22px 5vw;font-size:11px;display:flex;justify-content:space-between}
+@media(max-width:800px){.planta{overflow:hidden;padding:3vh 0 5vh}.pl{width:142%;max-width:none;margin:-9% -21% -9%}.dica{padding:0 5vw;text-align:center;position:relative;z-index:2;margin-top:2vh}header{flex-direction:column;gap:14px}nav{flex-wrap:wrap;justify-content:center}.hero{grid-template-columns:1fr}.hero img{height:55vh}.ficha{padding:36px 6vw}nav{gap:14px}}
+.logo img{height:46px;width:auto;display:block}.flogo{height:34px;width:auto;display:block}
+</style>
+<meta name="format-detection" content="telephone=no">
+<style>.logo img{height:46px!important;width:auto!important;max-width:60vw;display:block}.flogo{height:34px!important;width:auto!important;display:block}footer a{color:inherit}</style>
+</head>
+<body>
+<header><a class="logo" href="../../index.html"><img width="109" height="46" src="../../assets/logo-traco.png" alt="Traço Arquitetura"></a><nav><a href="../../varejo.html">Varejo</a><a href="../../corporativo.html">Corporativo</a><a href="../../residencial.html" class="on">Residencial</a><a href="../../sobre.html">Sobre nós</a></nav></header>
+<section class="hero">
+  <img class="zoomable" data-g="0" src="images/tm-05-estar-01.jpg" alt="Sala de estar com parede em pedra, sofá claro e almofadas azuis">
+  <div class="ficha">
+    <h1>TERRACOTA &amp; MARINHO</h1>
+    <div class="row rv"><span>Localização</span><span>São Paulo - SP</span></div>
+    <div class="row rv"><span>Ano</span><span>2026</span></div>
+    <div class="row rv"><span>Metragem</span><span><i data-count="40">40</i>m²</span></div>
+    <div class="row rv"><span>Tipo de projeto</span><span>Reforma</span></div>
+    <div class="trab rv">Trabalho desenvolvido<ul><li>Projeto executivo</li><li>Projeto de interiores</li><li>Modelagem 3D</li></ul></div>
+  </div>
+</section>
+<p class="intro">Terracota, azul marinho e madeira: três cores, uma conversa. Nesta reforma de 40 m², a cor entra em pequenos gestos, na cadeira, na almofada, no revestimento do banho, e deixa a base em cinza e areia respirar.</p>
+<section class="planta"><div class="pl"><img src="images/tm-planta.jpg" alt="Planta baixa humanizada do apartamento">
+<button class="hs" data-room="01" style="left:57.1%;top:7.5%;width:39.3%;height:26.9%" aria-label="Ver imagens: jantar"><span>Jantar</span></button>
+<button class="hs" data-room="02" style="left:54.3%;top:34.9%;width:35.0%;height:51.6%" aria-label="Ver imagens: estar"><span>Estar</span></button>
+<button class="hs" data-room="03" style="left:89.3%;top:35.5%;width:7.1%;height:30.1%" aria-label="Ver imagens: cozinha"><span>Cozinha</span></button>
+<button class="hs" data-room="11" style="left:89.3%;top:67.7%;width:7.1%;height:26.9%" aria-label="Ver imagens: área de serviço"><span>Serviço</span></button>
+<button class="hs" data-room="08" style="left:54.3%;top:86.6%;width:35.0%;height:10.8%" aria-label="Ver imagens: varanda"><span>Varanda</span></button>
+<button class="hs" data-room="13" style="left:32.1%;top:7.5%;width:23.2%;height:21.0%" aria-label="Ver imagens: banho social"><span>Banho social</span></button>
+<button class="hs" data-room="15" style="left:30.7%;top:42.5%;width:22.9%;height:44.1%" aria-label="Ver imagens: escritório"><span>Escritório</span></button>
+<button class="hs" data-room="17" style="left:3.9%;top:28.5%;width:26.8%;height:45.7%" aria-label="Ver imagens: quarto"><span>Quarto</span></button>
+<button class="hs" data-room="21" style="left:3.9%;top:7.5%;width:26.8%;height:21.0%" aria-label="Ver imagens: banho do casal"><span>Banho do casal</span></button>
+</div><p class="dica"><span class="d-m">Toque num ambiente para ver as imagens</span><span class="d-d">Passe o mouse sobre um ambiente</span></p></section>
+<section class="txt"><small>Materiais</small><p>A base é calma: porcelanato cinza, madeira de veio marcado e pedra clara de desenho livre. Sobre ela, o azul marinho do banho e o terracota das cadeiras acendem o olhar sem pesar.</p></section>
+<section class="mood"><img src="images/tm-mood.jpg" alt="Moodboard com porcelanato cinza, quartzito, madeira, azulejos azul e branco e uma cadeira terracota" loading="lazy"></section>
+<p class="mats-t">Lista de materiais</p>
+<section class="mats">
+<div class="mat"><i class="sw sq" style="background:#b5aea4"></i><div><b>Porcelanato Dolmen Cinza 90x90</b><span>Eliane · piso</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#cfd2c8"></i><div><b>Quartzito Taj Mahal</b><span>Bancadas e detalhes</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#6b4a3a"></i><div><b>Textura Estrelada</b><span>Revestimento do banho</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#c9bfa8"></i><div><b>MDF Ginger</b><span>Arauco · marcenaria clara</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#b4763a"></i><div><b>MDF Cravo</b><span>Arauco · marcenaria em madeira</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#2f3f5b"></i><div><b>Vivant Marin Matte 7x24</b><span>Portobello · banho do casal</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#ebe6df"></i><div><b>Vivant Blanc Brilho 7x24</b><span>Portobello · revestimento</span></div></div>
+</section>
+<section class="renders" id="renders"></section>
+<section class="txt"><p>Cor não é enfeite: é a forma de dar à casa a sua voz.</p></section>
+<div class="pn"><a href="../../residencial.html">← Voltar para Residencial</a><span></span></div>
+<footer><span><img class="flogo" width="80" height="34" src="../../assets/logo-traco-branco.png" alt="Traço Arquitetura"></span><span>Contato: 11 98215-8314 · igor.ssilva@outlook.com.br</span></footer>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Galeria de imagens"><span class="cnt"></span><button class="x" aria-label="Fechar">×</button><button class="pv" aria-label="Anterior">‹</button><img alt=""><button class="nx" aria-label="Próxima">›</button><div class="cap"></div></div>
+<script>
+var imgs=[["01-jantar-01","Jantar com mesa oval em pedra e cadeiras terracota"],["02-estar-jantar-01","Estar e jantar integrados, com vitrine em vidro"],["03-cozinha-01","Cozinha com geladeira e marcenaria em madeira"],["04-cozinha-02","Cozinha com bancada clara, pia e cooktop"],["05-estar-01","Estar com parede em pedra e sofá claro"],["06-estar-02","Estar com painel em pedra e quadro"],["07-jantar-02","Jantar com espelho orgânico e vitrine iluminada"],["08-varanda-01","Varanda integrada com banco azul"],["09-varanda-02","Varanda com bancada, prateleiras e plantas"],["10-estar-03","Estar com sofá, planta e área de serviço ao fundo"],["11-servico-01","Área de serviço escondida atrás de ripado"],["12-servico-02","Área de serviço com máquina e armários"],["13-banho-social-01","Banho social com bancada em pedra e espelho oval"],["14-banho-social-02","Banho social com parede em textura escura"],["15-escritorio-01","Escritório com bancada e iluminação azul"],["16-escritorio-02","Escritório com prateleiras e dupla bancada"],["17-quarto-01","Quarto visto do corredor, com cama ao fundo"],["18-quarto-02","Quarto com cabeceira em madeira e luminárias pendentes"],["19-quarto-03","Quarto com armário espelhado"],["20-quarto-04","Quarto com TV e cortinas leves"],["21-banho-casal-01","Banho do casal com bancada em madeira e box de vidro"],["22-banho-casal-02","Banho do casal com cuba branca e nicho iluminado"]];
+var T={"03":["Sala e cozinha","Sala e cozinha dividem o mesmo ar. O painel de madeira organiza, esconde e acolhe; a vitrine de vidro deixa a luz atravessar e transforma o que se guarda em paisagem."],"12":["Descanso","Dormir é a parte mais silenciosa da arquitetura. A cabeceira ripada, a luz indireta e a janela fazem o dia terminar devagar."],"15":["Um quarto que cresce","Um quarto que cresce com quem chega. Armários altos liberam o chão, as prateleiras guardam histórias e a poltrona ao lado do berço desenha o lugar do cuidado."],"19":["Pausa","Mesmo o menor cômodo merece luz e matéria. Vidro, marcenaria e um espelho generoso fazem do banho uma pausa."]};
+var box=document.getElementById('renders');
+imgs.forEach(function(a){var k=a[0].slice(0,2);if(T[k]){var d=document.createElement('div');d.className='txt';d.innerHTML='<small>'+T[k][0]+'</small><p>'+T[k][1]+'</p>';box.appendChild(d)}var i=document.createElement('img');i.src='images/tm-'+a[0]+'.jpg';i.alt=a[1];i.loading='lazy';i.dataset.k=k;box.appendChild(i)});
+
+/* galeria + ficha animada + planta */
+(function(){
+var hero=document.querySelector('.hero img');
+var G=[hero].concat([].slice.call(document.querySelectorAll('#renders img')));
+G.forEach(function(el,n){el.dataset.g=n;el.classList.add('zoomable');el.addEventListener('click',function(){open(n)})});
+var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('.cap'),cnt=lb.querySelector('.cnt'),cur=0;
+function show(n){cur=(n+G.length)%G.length;var e=G[cur];im.src=e.currentSrc||e.src;im.alt=e.alt;cap.textContent=e.alt;cnt.textContent=(cur+1)+' / '+G.length;var a=G[(cur+1)%G.length],b=new Image();b.src=a.src}
+function open(n){show(n);lb.classList.add('on');document.body.style.overflow='hidden'}
+function close(){lb.classList.remove('on');document.body.style.overflow=''}
+lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(cur-1)};lb.querySelector('.nx').onclick=function(){show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)close()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(cur+(d<0?1:-1));x0=null});
+document.querySelectorAll('.hs').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.room;for(var n=0;n<G.length;n++){if(G[n].dataset.k===k){open(n);return}}})});
+/* ficha animada */
+var rv=document.querySelectorAll('.rv'),red=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function count(el){var t=+el.dataset.count,s=null;function f(ts){if(s===null)s=ts;var p=Math.min((ts-s)/1100,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+if(red||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')})}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var c=e.target.querySelector('[data-count]');if(c)count(c);io.unobserve(e.target)}})},{threshold:.25});rv.forEach(function(e){io.observe(e)})}
+})();
+</script>
+</body>
+</html>
