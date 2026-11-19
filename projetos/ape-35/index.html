@@ -150,5 +150,7 @@ if(red||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.
 else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var c=e.target.querySelector('[data-count]');if(c)count(c);io.unobserve(e.target)}})},{threshold:.25});rv.forEach(function(e){io.observe(e)})}
 })();
 </script>
+<a class="wpp" href="https://wa.me/5511982158314?text=Ol%C3%A1%2C%20Igor!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" aria-label="Fale com o Igor pelo WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5A8.5 8.5 0 0 1 8.4 19L3 20.5l1.6-5.200A8.500 8.500 0 1 1 21 11.500z"/></svg><span>Fale com o Igor</span></a>
+<style>.wpp{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:9px;background:#1b1b1b;color:#fff;text-decoration:none;font:12px/1 'Questrial',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:13px 18px;border-radius:30px;box-shadow:0 4px 14px rgba(0,0,0,.22);transition:transform .2s,background .2s}.wpp:hover{background:#25d366;transform:translateY(-2px)}@media(max-width:520px){.wpp{padding:14px;right:14px;bottom:14px}.wpp span{display:none}}</style>
 </body>
 </html>
