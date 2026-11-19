@@ -1,7 +1,7 @@
 # Portfólio Igor Carvalho Arquitetura
 
 Site estático (HTML/CSS/JS, sem build) hospedado no GitHub Pages.
-Endereço: https://igorcarvalho-portifolio.github.io/portfolio-igor/
+Endereço: https://igorcarvalho-portfolio.github.io/portfolio-igor/
 
 ## Páginas
 - `residencial.html`: lista de projetos residenciais
