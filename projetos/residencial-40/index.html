@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RESIDENCIAL 40 | Traço Arquitetura</title>
+<meta name="description" content="RESIDENCIAL 40: reforma residencial de 40 m² em São Paulo, SP, com sala integrada, dois quartos e banheiro. Projeto de interiores e modelagem 3D.">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1b1b;--mute:#8a8a8a;--line:#d9d9d9}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Questrial',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 5vw}
+.logo{letter-spacing:.14em;font-size:14px;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:28px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+nav a{color:var(--ink);text-decoration:none;opacity:.75}nav a.on,nav a:hover{opacity:1}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;min-height:78vh}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.ficha{padding:12vh 6vw 6vh;align-self:start}
+h1{font-weight:400;font-size:26px;letter-spacing:.04em;margin-bottom:46px}
+.row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+.row span:last-child i{font-style:normal}
+.row span:last-child{color:var(--mute);text-align:right}
+.trab{padding-top:16px;font-size:13px}.trab ul{margin:12px 0 0 6px;list-style:none;color:var(--mute);font-size:12px;line-height:2}
+.trab li:before{content:"• "}
+.planta{padding:9vh 5vw;display:flex;justify-content:center}
+.planta img{width:min(880px,100%);height:auto}
+.renders img{display:block;width:100%;height:auto}
+.renders{display:flex;flex-direction:column;gap:6px}
+.pn{display:flex;justify-content:space-between;padding:40px 5vw;font-size:13px}
+.pn a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px}.pn a:hover{border-color:var(--ink)}
+
+.intro{max-width:760px;margin:0 auto;padding:10vh 6vw 2vh;text-align:center;font-size:19px;line-height:1.75;letter-spacing:.01em}
+.txt{max-width:640px;margin:0 auto;padding:11vh 6vw;text-align:center}
+.txt small{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.txt p{font-size:17px;line-height:1.85}
+.mood{padding:2vh 5vw 4vh;display:flex;justify-content:center}
+.mood img{width:min(960px,100%);height:auto;display:block}
+
+/* ficha animada */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.ficha .row.rv:nth-of-type(1){transition-delay:.1s}.ficha .row.rv:nth-of-type(2){transition-delay:.2s}.ficha .row.rv:nth-of-type(3){transition-delay:.3s}.ficha .row.rv:nth-of-type(4){transition-delay:.4s}.ficha .trab.rv{transition-delay:.55s}
+.row{position:relative}.row:after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--ink);transition:width .9s ease .3s}
+.row.in:after{width:100%}
+/* zoom */
+.zoomable{cursor:zoom-in}
+.hero img.zoomable{transition:filter .3s}.renders img{cursor:zoom-in}
+/* planta interativa */
+.planta{flex-direction:column;align-items:center;gap:18px}
+.pl{position:relative;width:min(880px,100%)}
+.pl img{width:100%;height:auto;display:block}
+.hs{position:absolute;border:1px solid transparent;background:transparent;cursor:pointer;padding:0;border-radius:3px;transition:background .25s,border-color .25s;font-family:inherit}
+.hs span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.92);background:var(--ink);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:2px;opacity:0;transition:opacity .25s,transform .25s;white-space:nowrap;pointer-events:none}
+.hs:hover,.hs:focus-visible{background:rgba(27,27,27,.10);border-color:rgba(27,27,27,.55);outline:none}
+.hs:hover span,.hs:focus-visible span,.hs.hint span{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.dica{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.d-m{display:none}@media(hover:none){.d-m{display:inline}.d-d{display:none}.hs span{opacity:.92;transform:translate(-50%,-50%) scale(.82)}.hs{background:rgba(27,27,27,.05)}}
+/* materiais */
+.mats{max-width:960px;margin:0 auto;padding:2vh 5vw 10vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 48px}
+.mat{display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.sw{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+.sw.sq{border-radius:3px}
+.mat b{display:block;font-weight:400;font-size:14px}
+.mat span{display:block;font-size:12px;color:var(--mute);margin-top:3px;line-height:1.5}
+.mats-t{text-align:center;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);padding-top:2vh}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(14,14,14,.94);display:none;align-items:center;justify-content:center;z-index:50;touch-action:pan-y}
+#lb.on{display:flex}
+#lb img{max-width:94vw;max-height:84vh;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none;animation:lbin .25s ease}
+@keyframes lbin{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+#lb .cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#d8d8d8;font-size:13px;padding:0 70px}
+#lb .cnt{position:absolute;top:20px;left:24px;color:#9a9a9a;font-size:12px;letter-spacing:.14em}
+#lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font-family:inherit;opacity:.8;transition:opacity .2s}
+#lb button:hover{opacity:1}
+#lb .x{top:10px;right:18px;font-size:34px;line-height:1;padding:8px}
+#lb .pv,#lb .nx{top:50%;transform:translateY(-50%);font-size:44px;padding:20px}
+#lb .pv{left:6px}#lb .nx{right:6px}
+@media(max-width:800px){#lb .pv,#lb .nx{font-size:34px;padding:10px;top:auto;bottom:56px;transform:none}#lb .cap{padding:0 20px;bottom:18px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.row:after{transition:none;width:100%}#lb img{animation:none}}
+footer{background:#1f1f22;color:#cfcfcf;padding:22px 5vw;font-size:11px;display:flex;justify-content:space-between}
+@media(max-width:800px){.planta{overflow:hidden;padding:3vh 0 5vh}.pl{width:142%;max-width:none;margin:-9% -21% -9%}.dica{padding:0 5vw;text-align:center;position:relative;z-index:2;margin-top:2vh}header{flex-direction:column;gap:14px}nav{flex-wrap:wrap;justify-content:center}.hero{grid-template-columns:1fr}.hero img{height:55vh}.ficha{padding:36px 6vw}nav{gap:14px}}
+.logo img{height:46px;width:auto;display:block}.flogo{height:34px;width:auto;display:block}
+</style>
+<meta name="format-detection" content="telephone=no">
+<style>.logo img{height:46px!important;width:auto!important;max-width:60vw;display:block}.flogo{height:34px!important;width:auto!important;display:block}footer a{color:inherit}</style>
+</head>
+<body>
+<header><a class="logo" href="../../index.html"><img width="109" height="46" src="../../assets/logo-traco.png" alt="Traço Arquitetura"></a><nav><a href="../../varejo.html">Varejo</a><a href="../../corporativo.html">Corporativo</a><a href="../../residencial.html" class="on">Residencial</a><a href="../../sobre.html">Sobre nós</a></nav></header>
+<section class="hero">
+  <img class="zoomable" data-g="0" src="images/res40-05-sala-01.jpg" alt="Sala de estar com painel de TV em madeira e estante branca">
+  <div class="ficha">
+    <h1>RESIDENCIAL 40</h1>
+    <div class="row rv"><span>Localização</span><span>São Paulo - SP</span></div>
+    <div class="row rv"><span>Ano</span><span>2025</span></div>
+    <div class="row rv"><span>Metragem</span><span><i data-count="40">40</i>m²</span></div>
+    <div class="row rv"><span>Tipo de projeto</span><span>Reforma</span></div>
+    <div class="trab rv">Trabalho desenvolvido<ul><li>Projeto executivo</li><li>Projeto de interiores</li><li>Modelagem 3D</li></ul></div>
+  </div>
+</section>
+<p class="intro">Quarenta metros quadrados que se abrem em um só gesto: do hall à sala, da sala ao jantar, cada ambiente conversa com o seguinte. Madeira clara, tons de areia e pequenos toques de verde e terracota dão ao apartamento um ritmo tranquilo.</p>
+<section class="planta"><div class="pl"><img src="images/res40-planta.jpg" alt="Planta baixa humanizada do apartamento">
+<button class="hs" data-room="01" style="left:24.8%;top:56.3%;width:9.9%;height:29.4%" aria-label="Ver imagens: hall de entrada"><span>Hall</span></button>
+<button class="hs" data-room="02" style="left:16.8%;top:4.6%;width:8.1%;height:67%" aria-label="Ver imagens: cozinha"><span>Cozinha</span></button>
+<button class="hs" data-room="05" style="left:34.8%;top:53.3%;width:24.8%;height:32.5%" aria-label="Ver imagens: sala de estar"><span>Sala</span></button>
+<button class="hs" data-room="08" style="left:59.6%;top:55.3%;width:34.2%;height:30.5%" aria-label="Ver imagens: jantar"><span>Jantar</span></button>
+<button class="hs" data-room="12" style="left:68.3%;top:9.6%;width:25.5%;height:45.7%" aria-label="Ver imagens: quarto de casal"><span>Quarto de casal</span></button>
+<button class="hs" data-room="16" style="left:31.1%;top:9.6%;width:22.0%;height:42.6%" aria-label="Ver imagens: quarto de visitas e home office"><span>Home office</span></button>
+<button class="hs" data-room="19" style="left:54.3%;top:9.6%;width:13.0%;height:27.4%" aria-label="Ver imagens: banheiro"><span>Banheiro</span></button>
+</div><p class="dica"><span class="d-m">Toque num ambiente para ver as imagens</span><span class="d-d">Passe o mouse sobre um ambiente</span></p></section>
+<section class="txt"><small>Materiais</small><p>A paleta é feita de poucos gestos: a madeira clara do tauari, porcelanatos em tons de pedra e areia, o brilho irregular do revestimento artesanal e o verde de uma folha. Matéria honesta, cor calma.</p></section>
+<section class="mood"><img src="images/res40-mood.jpg" alt="Moodboard com madeira, porcelanatos, tintas e folhas verdes" loading="lazy"></section>
+<p class="mats-t">Lista de materiais</p>
+<section class="mats">
+<div class="mat"><i class="sw" style="background:#c4bcb4"></i><div><b>Pintura Papel Picado</b><span>Suvinil · cor de parede</span></div></div>
+<div class="mat"><i class="sw" style="background:#a8a285"></i><div><b>Pintura Ninho</b><span>Suvinil · cor de parede</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#c18f58"></i><div><b>MDF Tauari</b><span>Guararapes · marcenaria em madeira</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#d6cfcb"></i><div><b>MDF Areia Matt</b><span>Guararapes · marcenaria</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#e3dfdc"></i><div><b>Porcelanato Munari Branco 90x90</b><span>Eliane</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#d4d2cf"></i><div><b>Porcelanato Terrazine Bianco 72x72</b><span>Savane</span></div></div>
+<div class="mat"><i class="sw sq" style="background:#cdc2b5"></i><div><b>Revestimento Gouache</b><span>Portobello</span></div></div>
+</section>
+<section class="renders" id="renders"></section>
+<section class="txt"><p>Uma casa boa é a que sobra depois de tirar o excesso: luz, matéria e o espaço para a vida acontecer.</p></section>
+<div class="pn"><a href="../../residencial.html">← Voltar para Residencial</a><span></span></div>
+<footer><span><img class="flogo" width="80" height="34" src="../../assets/logo-traco-branco.png" alt="Traço Arquitetura"></span><span>Contato: 11 98215-8314 · igor.ssilva@outlook.com.br</span></footer>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Galeria de imagens"><span class="cnt"></span><button class="x" aria-label="Fechar">×</button><button class="pv" aria-label="Anterior">‹</button><img alt=""><button class="nx" aria-label="Próxima">›</button><div class="cap"></div></div>
+<script>
+var imgs=[["01-hall-01","Hall de entrada com painel de TV e estante"],["02-cozinha-01","Cozinha com geladeira e marcenaria em madeira"],["03-cozinha-02","Cozinha com bancada em granilite e revestimento artesanal"],["04-cozinha-03","Cozinha em L com cooktop e forno"],["05-sala-01","Sala de estar com painel de TV em madeira"],["06-sala-02","Sala de estar com sofá e estante branca"],["07-sala-03","Sala e jantar integrados"],["08-jantar-01","Jantar com banco estofado e estante"],["09-jantar-02","Mesa de jantar com luminária pendente"],["10-jantar-03","Mesa de jantar e sofá no mesmo ambiente"],["11-jantar-04","Vista do jantar em direção à sala"],["12-casal-01","Quarto de casal com cabeceira ripada"],["13-casal-02","Quarto de casal com espelho orgânico"],["14-casal-03","Quarto de casal com armário até o teto"],["15-casal-04","Quarto de casal, vista da janela"],["16-escritorio-01","Quarto de visitas com bancada de home office"],["17-escritorio-02","Home office com prateleiras e luminária redonda"],["18-escritorio-03","Home office com bancada em L"],["19-banheiro-01","Banheiro com box de vidro e bancada em madeira"],["20-banheiro-02","Banheiro com vaso e box de vidro"],["21-banheiro-03","Banheiro com ducha e nicho iluminado"]];
+var T={"03":["Sala e cozinha","Sala e cozinha dividem o mesmo ar. O painel de madeira organiza, esconde e acolhe; a vitrine de vidro deixa a luz atravessar e transforma o que se guarda em paisagem."],"12":["Descanso","Dormir é a parte mais silenciosa da arquitetura. A cabeceira ripada, a luz indireta e a janela fazem o dia terminar devagar."],"15":["Um quarto que cresce","Um quarto que cresce com quem chega. Armários altos liberam o chão, as prateleiras guardam histórias e a poltrona ao lado do berço desenha o lugar do cuidado."],"19":["Pausa","Mesmo o menor cômodo merece luz e matéria. Vidro, marcenaria e um espelho generoso fazem do banho uma pausa."]};
+var box=document.getElementById('renders');
+imgs.forEach(function(a){var k=a[0].slice(0,2);if(T[k]){var d=document.createElement('div');d.className='txt';d.innerHTML='<small>'+T[k][0]+'</small><p>'+T[k][1]+'</p>';box.appendChild(d)}var i=document.createElement('img');i.src='images/res40-'+a[0]+'.jpg';i.alt=a[1];i.loading='lazy';i.dataset.k=k;box.appendChild(i)});
+
+/* galeria + ficha animada + planta */
+(function(){
+var hero=document.querySelector('.hero img');
+var G=[hero].concat([].slice.call(document.querySelectorAll('#renders img')));
+G.forEach(function(el,n){el.dataset.g=n;el.classList.add('zoomable');el.addEventListener('click',function(){open(n)})});
+var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('.cap'),cnt=lb.querySelector('.cnt'),cur=0;
+function show(n){cur=(n+G.length)%G.length;var e=G[cur];im.src=e.currentSrc||e.src;im.alt=e.alt;cap.textContent=e.alt;cnt.textContent=(cur+1)+' / '+G.length;var a=G[(cur+1)%G.length],b=new Image();b.src=a.src}
+function open(n){show(n);lb.classList.add('on');document.body.style.overflow='hidden'}
+function close(){lb.classList.remove('on');document.body.style.overflow=''}
+lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(cur-1)};lb.querySelector('.nx').onclick=function(){show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)close()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(cur+(d<0?1:-1));x0=null});
+document.querySelectorAll('.hs').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.room;for(var n=0;n<G.length;n++){if(G[n].dataset.k===k){open(n);return}}})});
+/* ficha animada */
+var rv=document.querySelectorAll('.rv'),red=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function count(el){var t=+el.dataset.count,s=null;function f(ts){if(s===null)s=ts;var p=Math.min((ts-s)/1100,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+if(red||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')})}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var c=e.target.querySelector('[data-count]');if(c)count(c);io.unobserve(e.target)}})},{threshold:.25});rv.forEach(function(e){io.observe(e)})}
+})();
+</script>
+</body>
+</html>
