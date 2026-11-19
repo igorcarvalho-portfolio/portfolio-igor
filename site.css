@@ -23,5 +23,5 @@ h1{font-weight:400;font-size:26px;letter-spacing:.04em}
 .vazio a:hover{border-color:var(--ink)}
 footer{background:#1f1f22;color:#cfcfcf;padding:22px 5vw;font-size:11px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media(max-width:800px){nav{gap:14px}header{flex-direction:column;gap:14px}}
-.logo img{height:46px;width:auto;display:block}.flogo{height:34px;width:auto;display:block}
+.logo img{height:40px;width:auto;display:block}.flogo{height:30px;width:auto;display:block}
 footer{align-items:center}
