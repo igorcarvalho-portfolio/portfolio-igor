@@ -19,6 +19,7 @@ nav a{color:var(--ink);text-decoration:none;opacity:.75}nav a.on,nav a:hover{opa
 .ficha{padding:12vh 6vw 6vh;align-self:start}
 h1{font-weight:400;font-size:26px;letter-spacing:.04em;margin-bottom:46px}
 .row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+.row span:last-child i{font-style:normal}
 .row span:last-child{color:var(--mute);text-align:right}
 .trab{padding-top:16px;font-size:13px}.trab ul{margin:12px 0 0 6px;list-style:none;color:var(--mute);font-size:12px;line-height:2}
 .trab li:before{content:"• "}
@@ -79,10 +80,11 @@ h1{font-weight:400;font-size:26px;letter-spacing:.04em;margin-bottom:46px}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.row:after{transition:none;width:100%}#lb img{animation:none}}
 footer{background:#1f1f22;color:#cfcfcf;padding:22px 5vw;font-size:11px;display:flex;justify-content:space-between}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.hero img{height:55vh}.ficha{padding:36px 6vw}nav{gap:14px}}
+.logo img{height:46px;width:auto;display:block}.flogo{height:34px;width:auto;display:block}
 </style>
 </head>
 <body>
-<header><a class="logo" href="../../index.html">IGOR SANTOS</a><nav><a href="../../varejo.html">Varejo</a><a href="../../corporativo.html">Corporativo</a><a href="../../residencial.html" class="on">Residencial</a><a href="../../sobre.html">Sobre Igor</a></nav></header>
+<header><a class="logo" href="../../index.html"><img src="../../assets/logo-traco.png" alt="Traço Arquitetura"></a><nav><a href="../../varejo.html">Varejo</a><a href="../../corporativo.html">Corporativo</a><a href="../../residencial.html" class="on">Residencial</a><a href="../../sobre.html">Sobre Igor</a></nav></header>
 <section class="hero">
   <img class="zoomable" data-g="0" src="images/ape35-01-destaque-sala.jpg" alt="Sala de estar e jantar integradas, com painel em madeira e luminárias pendentes">
   <div class="ficha">
@@ -116,7 +118,7 @@ footer{background:#1f1f22;color:#cfcfcf;padding:22px 5vw;font-size:11px;display:
 <section class="renders" id="renders"></section>
 <section class="txt"><p>Projetar um espaço pequeno é um exercício de escolha: ficar com o essencial e deixar que ele seja belo.</p></section>
 <div class="pn"><a href="../../residencial.html">← Voltar para Residencial</a><span></span></div>
-<footer><span>© 2026 Igor Santos Arquitetura</span><span>Contato: 11 98215-8314 · igor.ssilva@outlook.com.br</span></footer>
+<footer><span><img class="flogo" src="../../assets/logo-traco-branco.png" alt="Traço Arquitetura"></span><span>Contato: 11 98215-8314 · igor.ssilva@outlook.com.br</span></footer>
 <div id="lb" role="dialog" aria-modal="true" aria-label="Galeria de imagens"><span class="cnt"></span><button class="x" aria-label="Fechar">×</button><button class="pv" aria-label="Anterior">‹</button><img alt=""><button class="nx" aria-label="Próxima">›</button><div class="cap"></div></div>
 <script>
 var imgs=[["03-sala-02","Sala de estar com painel de TV em madeira"],["04-sala-03","Sala de jantar e cozinha integradas"],["05-sala-04","Vista da sala de jantar em direção ao corredor"],["06-cozinha-05","Cozinha com geladeira e porta com iluminação curva"],["07-cozinha-06","Cozinha em L com bancada em porcelanato"],["08-cozinha-07","Vitrine em vidro e madeira ao lado da área de serviço"],["09-cozinha-08","Cozinha com cooktop e máquina de lavar"],["10-cozinha-09","Corredor com vitrine em vidro"],["11-sala-10","Sala de estar com sofá"],["12-quarto-casal-11","Quarto de casal com armários suspensos"],["13-quarto-casal-12","Quarto de casal, cabeceira ripada"],["14-quarto-casal-13","Quarto de casal com espelho orgânico"],["15-quarto-bebe-14","Quarto do bebê com berço e poltrona"],["16-quarto-bebe-15","Quarto do bebê com armário e prateleiras"],["17-quarto-bebe-16","Quarto do bebê com nichos e brinquedos"],["18-quarto-bebe-17","Quarto do bebê com poltrona de amamentação"],["19-banheiro-18","Banheiro com bancada branca e box de vidro"],["20-banheiro-19","Banheiro com marcenaria em madeira"]];
