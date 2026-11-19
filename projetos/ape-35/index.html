@@ -150,6 +150,6 @@ if(red||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.
 else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var c=e.target.querySelector('[data-count]');if(c)count(c);io.unobserve(e.target)}})},{threshold:.25});rv.forEach(function(e){io.observe(e)})}
 })();
 </script>
-<style>.fc{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.fb{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.55);padding:9px 16px;letter-spacing:.12em;text-transform:uppercase;font-size:10px;transition:background .2s,color .2s}.fb:hover{background:#fff;color:#1f1f22}</style>
+<style>.fc{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.fb{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.55);padding:9px 16px;letter-spacing:.12em;text-transform:uppercase;font-size:10px;transition:background .2s,color .2s}.fb:hover{background:#fff;color:#1f1f22}@media(max-width:520px){.fc>span{flex-basis:100%}.fc{gap:10px}.fb{flex:1;text-align:center}}</style>
 </body>
 </html>
