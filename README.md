@@ -10,10 +10,10 @@ Endereço: https://igorcarvalho-portfolio.github.io/portfolio-igor/
 - `projetos/<slug>/index.html`: uma página por projeto, com imagens em `images/`
 
 ## Projetos publicados
-- `ape-35`: APÊ 35 (reforma, São Paulo, 2026, 35 m²)
-- `apto-02`: APÊ 02 (reforma, São Paulo, 2025, 38 m²)
-- `residencial-40`: RESIDENCIAL 40 (reforma, São Paulo, 2025, 40 m²)
-- `terracota-marinho`: TERRACOTA & MARINHO (reforma, São Paulo, 2026, 40 m²)
+- `ape-35`: APÊ V&J (reforma, São Paulo, 2026, 31 m²)
+- `apto-02`: APÊ B&D (reforma, São Paulo, 2025, 34 m²)
+- `residencial-40`: APÊ B&L (reforma, São Paulo, 2025, 44 m²)
+- `terracota-marinho`: APÊ V&V (reforma, São Paulo, 2026, 45 m²)
 
 ## Regras
 - Sem nomes de clientes no site; cada projeto tem um nome de referência
